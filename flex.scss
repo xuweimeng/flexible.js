@@ -1,0 +1,63 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.full{
+	width: 100%;
+	height: 100%;
+}
+$fontSize: 34px;
+
+/*px to rem*/
+@function pxToRem($px){
+	@return $px / 75 * 1rem;
+}
+
+
+@mixin dpr($elem,$size){
+
+	#{$elem}{
+	    font-size: $size * 0.6;
+	}
+	[data-dpr="1"] #{$elem} {
+	    font-size: $size * 0.6;
+	}
+	[data-dpr="2"] #{$elem} {
+	    font-size: $size * 1.2;
+	}
+	[data-dpr="2.5"] #{$elem} {
+	    font-size: $size * 1.25;
+	}
+	[data-dpr="2.75"] #{$elem}{
+	    font-size: $size * 1.75;
+	}
+	[data-dpr="3"] #{$elem}{
+	    font-size: $size * 2;
+	}
+	[data-dpr="4"] #{$elem}{
+	    font-size: $size * 3;
+	}
+}
+@include dpr(".fs-16",16px);
+@include dpr(".fs-18",18px);
+@include dpr(".fs-20",20px);
+@include dpr(".fs-22",22px);
+@include dpr(".fs-24",24px);
+@include dpr(".fs-26",26px);
+@include dpr(".fs-28",28px);
+@include dpr(".fs-30",30px);
+@include dpr(".fs-32",32px);
+@include dpr(".fs-36",36px);
+@include dpr(".fs-40",40px);
+
+
+.header{
+	width: 100%;
+	height: pxToRem(300);
+	background-color: green;
+}
+.content{
+	width: 100%;
+	height: pxToRem(500);
+	background-color:red;
+}
